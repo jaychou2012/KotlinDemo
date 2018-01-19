@@ -11,6 +11,7 @@ import com.tandong.kotlin.entity.User
 import com.tandong.kotlin.net.ApiClient
 import com.tandong.kotlin.net.ResultListener
 import com.tandong.kotlin.net.ResultObserver
+import com.tandong.kotlin.utils.TestInstance
 import com.tandong.kotlin.utils.Utils
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -18,6 +19,7 @@ import retrofit2.Call
 class MainActivity : BaseActivity(), View.OnClickListener {
     private var users: Call<List<User>>? = null
     private var userList: List<User>? = null
+    private var testInstance: TestInstance? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +54,8 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             }
 
         }));
+        testInstance = TestInstance.instance;
+        testInstance!!.method();
     }
 
     override fun onClick(v: View?) {
